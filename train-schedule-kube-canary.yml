@@ -18,20 +18,20 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: train-schedule-deployment
+  name: train-schedule-deployment-canary
   labels:
     app: train-schedule
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: train-schedule
-      track: stable
+      track: canary
   template:
     metadata:
       labels:
         app: train-schedule
-        track: stable
+        track: canary
     spec:
       containers:
       - name: train-schedule
